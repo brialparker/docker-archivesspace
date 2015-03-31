@@ -8,6 +8,15 @@ if [[ "$ARCHIVESSPACE_DB_TYPE" == "mysql" ]]; then
   /archivesspace/scripts/setup-database.sh
 fi
 
+
+if [[ $FRONTEND_PROXY_URL ]]; then
+  echo "AppConfig[:frontend_proxy_url] = \"$FRONTEND_PROXY_URL\"" >> /archivesspace/config/config.rb 
+fi
+
+if [[ $PUBLIC_PROXY_URL ]]; then
+  echo "AppConfig[:public_proxy_url] = \"$PUBLIC_PROXY_URL\"" >> /archivesspace/config/config.rb 
+fi
+
 for PLUGIN in /archivesspace/plugins/*; do
   [[ -d $PLUGIN ]] && echo "AppConfig[:plugins] << '${PLUGIN##*/}'" >> /archivesspace/config/config.rb
 done
