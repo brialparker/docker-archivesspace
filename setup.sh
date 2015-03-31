@@ -13,8 +13,16 @@ if [[ $FRONTEND_PROXY_URL ]]; then
   echo "AppConfig[:frontend_proxy_url] = \"$FRONTEND_PROXY_URL\"" >> /archivesspace/config/config.rb 
 fi
 
+if [[ $FRONTEND_PREFIX ]]; then
+  echo "AppConfig[:frontend_prefix] = \"$FRONTEND_PREFIX\"" >> /archivesspace/config/config.rb 
+fi
+
 if [[ $PUBLIC_PROXY_URL ]]; then
   echo "AppConfig[:public_proxy_url] = \"$PUBLIC_PROXY_URL\"" >> /archivesspace/config/config.rb 
+fi
+
+if [[ $PUBLIC_PREFIX ]]; then
+  echo "AppConfig[:public_prefix] = \"$PUBLIC_PREFIX\"" >> /archivesspace/config/config.rb 
 fi
 
 for PLUGIN in /archivesspace/plugins/*; do
