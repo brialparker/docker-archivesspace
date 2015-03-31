@@ -2,14 +2,11 @@
 
 cat /dev/null > /archivesspace/config/config.rb
 
-
-echo "
-AppConfig[:search_user_secret] = \"#{SecureRandom.hex}\"\n
-AppConfig[:public_user_secret] = \"#{SecureRandom.hex}\"\n
-AppConfig[:staff_user_secret] = \"#{SecureRandom.hex}\"\n
-AppConfig[:frontend_cookie_secret] = \"#{SecureRandom.hex}\"\n
-AppConfig[:public_cookie_secret] = \"#{SecureRandom.hex}\"\n
-" >> /archivesspace/config/config.rb
+echo "AppConfig[:search_user_secret] = \""$(ruby  -e "require 'securerandom'; print SecureRandom.hex;")"\"" >> /archivesspace/config/config.rb
+echo "AppConfig[:public_user_secret] = \""$(ruby  -e "require 'securerandom'; print SecureRandom.hex;")"\""  >> /archivesspace/config/config.rb
+echo "AppConfig[:staff_user_secret] = \""$(ruby  -e "require 'securerandom'; print SecureRandom.hex;") "\""  >> /archivesspace/config/config.rb
+echo "AppConfig[:frontend_cookie_secret] = \""$(ruby  -e "require 'securerandom'; print SecureRandom.hex;")"\""  >> /archivesspace/config/config.rb
+echo "AppConfig[:public_cookie_secret] = \""$(ruby  -e "require 'securerandom'; print SecureRandom.hex;")"\"" >> /archivesspace/config/config.rb
 
 
 if [[ "$ARCHIVESSPACE_DB_TYPE" == "mysql" ]]; then
