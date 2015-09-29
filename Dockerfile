@@ -8,6 +8,7 @@ ENV ARCHIVESSPACE_DB_NAME archivesspace
 ENV ARCHIVESSPACE_DB_USER archivesspace
 ENV ARCHIVESSPACE_DB_PASS archivesspace
 
+
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install --no-install-recommends \
   mysql-client \
