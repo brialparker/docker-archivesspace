@@ -1,7 +1,7 @@
 FROM ubuntu:trusty
 MAINTAINER Mark Cooper <mark.c.cooper@outlook.com>
 
-ENV ARCHIVESSPACE_VERSION 1.3.0
+ENV ARCHIVESSPACE_VERSION 1.4.0
 ENV ARCHIVESSPACE_URL https://github.com/archivesspace/archivesspace/releases/download/v$ARCHIVESSPACE_VERSION/archivesspace-v$ARCHIVESSPACE_VERSION.zip
 ENV ARCHIVESSPACE_DB_TYPE demo
 ENV ARCHIVESSPACE_DB_NAME archivesspace
