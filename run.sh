@@ -5,7 +5,7 @@ echo "Pulling MySQL image"
 docker pull mysql
 
 echo "Pulling latest ArchivesSpace build image"
-docker pull markcooper/archivesspace
+docker pull brialparker/archivesspace
 
 echo "Starting MySQL instance in background"
 docker run -d \
@@ -29,4 +29,4 @@ docker run --name archivesspace -d \
   -p 8090:8090 \
   -e ARCHIVESSPACE_DB_TYPE=mysql \
   --link mysql:db \
-  markcooper/archivesspace
+  brialparker/archivesspace
